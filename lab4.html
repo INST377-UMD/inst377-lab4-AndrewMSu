@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab4</title>
+    <link rel="stylesheet" href="lab4.css">
+</head>
+<body>
+    <h1 id="addHere">INST377 - Lab 4</h1>
+    <div class="main-container">
+        <div class="sections">
+            <form name="alertMeForm" onsubmit="return alertMe()">
+                <label for="name">Name: </label>
+                <input type="text" id="name" required>
+                <button type="submit">Alert Me!</button>
+            </form>
+        </div>
+
+        <div class="sections">
+            <button onclick="changeColor()">Change Color</button>
+        </div>
+
+        <div class="sections">
+            <form name="textTester" onsubmit="return textValidation()">
+                <label for="input">Text Tester: </label>
+                <input type="text" id="input" required>
+                <button type="submit">Validate Text</button>
+            </form>
+        </div>
+
+        <div class="sections">
+            <button onclick="addText()">Add Text</button>
+        </div>
+    </div>
+
+    <script>
+        function alertMe() {
+            const name = document.alertMeForm.name.value;
+            alert("Hi " + name);
+        }
+
+        function changeColor() {
+            if (document.body.style.backgroundColor === "darkseagreen"){
+                document.body.style.backgroundColor = "hotpink";
+            } else {
+                document.body.style.backgroundColor = "darkseagreen";
+            }
+        }
+
+        function textValidation() {
+            const validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            const input = document.textTester.input.value;
+            if (validation.test(input)) {
+                alert("You can't use special characters!");
+            }
+        }
+
+        function addText() {
+            const addTitle = document.getElementById("addHere");
+            const text = " - Adding Text"
+            addTitle.append(text);
+        }
+    </script>
+</body>
+</html>
